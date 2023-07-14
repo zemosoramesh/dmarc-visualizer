@@ -19,7 +19,7 @@ datasources:
   access: 'proxy'
   orgId: 1
   url: 'http://elasticsearch:9200'
-  database: '[dmarc_forensic-]YYYY-MM-DD'
+  database: '[dmarc_aggregate-]YYYY-MM-DD'
   isDefault: false
   jsonData:
     esVersion: 70

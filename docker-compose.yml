@@ -5,7 +5,7 @@ services:
     volumes:
       - ./files:/input:ro
       - ./output_files:/output
-    command: parsedmarc -c /parsedmarc.ini /input/*
+    command: parsedmarc --verbose --debug -c /parsedmarc.ini /input/*
     depends_on:
       - elasticsearch
     restart: on-failure

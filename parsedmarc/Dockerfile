@@ -1,9 +1,11 @@
-FROM python:alpine
+FROM ubuntu:latest
 
-RUN apk add --update --no-cache libxml2-dev libxslt-dev
-RUN apk add --update --no-cache --virtual .build_deps build-base libffi-dev \
-    && pip install parsedmarc \
-    && apk del .build_deps
+RUN apt-get update
+RUN apt-get install -y geoipupdate
+RUN apt-get install -y python3-pip python3-virtualenv python3-dev libxml2-dev libxslt-dev
 
+RUN pip install parsedmarc
+
+COPY GeoIP.conf /etc/
 COPY parsedmarc.ini /
 #COPY GeoLite2-Country.mmdb /usr/share/GeoIP/GeoLite2-Country.mmdb
